@@ -1,0 +1,250 @@
+.about-page {
+  position: relative;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(500px, 1.28fr);
+  grid-template-rows: auto auto auto;
+  gap: clamp(16px, 2vw, 28px) clamp(36px, 6vw, 112px);
+  align-content: center;
+  padding: 106px calc(var(--space-8) + var(--page-indicator-clearance)) 52px var(--space-8);
+  overflow: hidden;
+  background: var(--page-background);
+}
+
+.about-hero,
+.about-profile,
+.competency-section,
+.career-goal {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero {
+  align-self: end;
+  transform: translateY(-118px);
+}
+
+.about-profile {
+  align-self: end;
+  justify-self: end;
+  padding: 0 0 var(--space-6);
+  text-align: right;
+}
+
+.about-section-heading > p,
+.career-goal > p:first-child {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.about-hero h2 {
+  margin: var(--space-2) 0 0;
+  font-family: var(--display-font);
+  font-size: clamp(54px, 7vw, 110px);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.about-name {
+  margin: 0;
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 850;
+  letter-spacing: -0.05em;
+}
+
+.about-role {
+  margin: var(--space-2) 0 0;
+  color: var(--color-muted);
+  font-size: clamp(13px, 1.15vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.career-goal {
+  padding: clamp(22px, 2.5vw, 36px);
+  border: 2px solid var(--color-line);
+  border-radius: 28px;
+  background: var(--color-panel);
+  backdrop-filter: blur(14px);
+}
+
+.career-goal > p:last-child {
+  margin: var(--space-4) 0 0;
+  color: var(--color-muted);
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 650;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.competency-section {
+  grid-column: 1 / -1;
+}
+
+.about-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.career-goal h3 {
+  margin: 0;
+  font-size: clamp(16px, 1.35vw, 21px);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.competency-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.competency-card {
+  min-height: 128px;
+  padding: var(--space-6) clamp(16px, 2vw, 28px);
+}
+
+.competency-card:not(:first-child) {
+  border-left: 1px solid var(--color-line);
+}
+
+.competency-card h4 {
+  margin: 0;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.2;
+}
+
+.competency-card p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.career-goal {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto minmax(280px, 0.8fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-6);
+}
+
+.career-goal > p:last-child {
+  margin: 0;
+}
+
+@media (max-width: 1120px) {
+  .about-page {
+    grid-template-columns: minmax(250px, 0.75fr) minmax(420px, 1.25fr);
+    padding-top: 98px;
+  }
+
+  .competency-card { min-height: 124px; }
+
+  .career-goal {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .career-goal > p:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .about-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 8px;
+    align-content: center;
+    padding: 78px 52px 12px 20px;
+  }
+
+  .about-role {
+    margin-top: 4px;
+    font-size: 10px;
+  }
+
+  .about-name {
+    margin-top: 12px;
+    font-size: 19px;
+  }
+
+  .about-hero h2 {
+    font-size: clamp(46px, 12vw, 56px);
+  }
+
+  .about-hero {
+    transform: none;
+  }
+
+  .about-profile {
+    align-self: start;
+    justify-self: start;
+    padding: 0;
+    border: 0;
+    text-align: left;
+  }
+
+  .career-goal {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .career-goal > p:last-child {
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .about-section-heading {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .competency-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-bottom: 0;
+  }
+
+  .competency-card {
+    min-height: 0;
+    padding: 10px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .competency-card:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .competency-card h4 {
+    font-size: 11px;
+  }
+
+  .competency-card p {
+    margin-top: 4px;
+    font-size: 9px;
+    line-height: 1.32;
+  }
+
+  .career-goal {
+    display: block;
+  }
+
+  .career-goal h3 {
+    margin-top: 4px;
+    font-size: 13px;
+  }
+
+}

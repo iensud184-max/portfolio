@@ -1,0 +1,19 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Python virtual environment
+.venv/
+
+# Environment-specific secrets
+.env
+.env.*
+!.env.example
+
+# Local Codex metadata
+.omo/
+.codegraph/
+
+# Operating system files
+Thumbs.db
+.DS_Store

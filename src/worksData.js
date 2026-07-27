@@ -1,3 +1,5 @@
+const projectPreview = (fileName) => `${import.meta.env.BASE_URL}projects/${fileName}`;
+
 const worksProjects = [
   {
     id: 1,
@@ -8,7 +10,7 @@ const worksProjects = [
     tags: ["React 19", "Tailwind CSS", "Vite", "Flask", "Supabase", "PostgreSQL", "LightGBM", "TradingView"],
     sourceUrl: "https://github.com/iensud184-max/Trading",
     liveLinks: [{ label: "TRADING APP", url: "https://trading-lake-ten.vercel.app/" }],
-    previewImage: "/projects/trading.png",
+    previewImage: projectPreview("trading.png"),
     previewAlt: "AI Trading Assistant dashboard preview",
   },
   {
@@ -23,7 +25,7 @@ const worksProjects = [
       { label: "SUBWAY LINE 2", url: "https://huggingface.co/spaces/lololoooool/subway_line2" },
       { label: "SUBWAY LINE 1-8", url: "https://huggingface.co/spaces/lololoooool/subway_line1_8" },
     ],
-    previewImage: "/projects/subway.png",
+    previewImage: projectPreview("subway.png"),
     previewAlt: "Seoul Subway Line 2 dashboard preview",
   },
   {
@@ -35,7 +37,7 @@ const worksProjects = [
     tags: ["Python", "Flask", "SQLAlchemy", "MySQL", "Jinja2", "Bootstrap", "Toss Payments"],
     sourceUrl: "https://github.com/iensud184-max/movie_260407",
     liveLinks: [{ label: "FILMATIQUE", url: "https://hub.docker.com/r/kangminsik/filmatique" }],
-    previewImage: "/projects/movie.png",
+    previewImage: projectPreview("movie.png"),
     previewAlt: "Filmatique cinema site preview",
   },
   {
@@ -47,7 +49,7 @@ const worksProjects = [
     tags: ["HTML5", "CSS3", "JavaScript", "Swiper", "Font Awesome"],
     sourceUrl: "https://github.com/iensud184-max/KDH_project1_kyobobook",
     liveLinks: [{ label: "KYOBO BOOK", url: "https://iensud184-max.github.io/KDH_project1_kyobobook/" }],
-    previewImage: "/projects/kyobo.png",
+    previewImage: projectPreview("kyobo.png"),
     previewAlt: "Kyobo Book storefront preview",
   },
 ];

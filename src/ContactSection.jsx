@@ -2,14 +2,14 @@ import "./ContactSection.css";
 
 const contactContent = {
   title: "Contact",
-  message: "새로운 프로젝트와 협업에 대해 이야기 나누고 싶다면 편하게 연락해 주세요.",
+  message: "데이터 분석과 머신러닝 역량을 바탕으로\n실제 문제 해결에 기여할 기회를 찾고 있습니다.",
   name: "김동환",
   englishName: "Kim Donghwan",
   phone: "010-2557-3564",
   email: "iensud184@naver.com",
   githubLabel: "github.com/iensud184-max",
   githubUrl: "https://github.com/iensud184-max",
-  thanks: "Thank you for visiting my portfolio",
+  thanks: "Thank you for visiting\nmy portfolio",
 };
 
 function ContactSection() {

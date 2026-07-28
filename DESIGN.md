@@ -98,7 +98,7 @@ All spacing derives from 4px.
 
 ### Works Section
 
-- Structure: project tabs, large desktop mockup, overlapping mobile mockup, and a detail panel.
+- Structure: an upper-right WORKS label, a large desktop mockup with a thicker lower bezel that contains its project tabs, and a compact detail panel.
 - States: selected tab updates the mockup title, metadata, stack tags, named live-demo links, and a GitHub link placed last. Projects with multiple demos expose each destination as a separate external link.
 - Accessibility: tab controls are real buttons with `aria-pressed`.
 - Motion: only the project detail fades/rises on tab change.
@@ -116,6 +116,7 @@ All spacing derives from 4px.
 - States: mouse wheel, Arrow Up/Down, Page Up/Down, Space, and vertical swipe advance exactly one page.
 - Motion: incoming page rises from one viewport below while the outgoing page moves one viewport upward; opacity and transform animate over 720ms with `cubic-bezier(0.16, 1, 0.3, 1)`.
 - Accessibility: `prefers-reduced-motion` reduces the transition duration; keyboard navigation prevents browser scrolling only for page-navigation keys.
+- Responsive behavior: desktop and tablet retain full-page transitions; on screens 760px and below, the active page scrolls internally so content is never cropped, while the page dots remain available for navigation.
 
 ### Page Indicator
 

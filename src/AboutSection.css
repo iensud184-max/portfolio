@@ -47,6 +47,7 @@
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 0.86;
+  white-space: nowrap;
 }
 
 .about-name {
@@ -167,8 +168,9 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto;
     gap: 8px;
+    min-height: 100dvh;
     align-content: center;
-    padding: 78px 52px 12px 20px;
+    padding: 88px 52px 48px 20px;
   }
 
   .about-role {
@@ -182,10 +184,12 @@
   }
 
   .about-hero h2 {
-    font-size: clamp(46px, 12vw, 56px);
+    font-size: clamp(38px, 10vw, 48px);
   }
 
   .about-hero {
+    display: block;
+    align-self: start;
     transform: none;
   }
 
@@ -247,4 +251,10 @@
     font-size: 13px;
   }
 
+}
+
+@media (min-width: 761px) and (max-height: 900px) {
+  .about-page { padding-top: 86px; padding-bottom: 32px; }
+  .about-hero { transform: translateY(-76px); }
+  .competency-card { min-height: 108px; padding-top: 18px; padding-bottom: 18px; }
 }

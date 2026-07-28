@@ -69,6 +69,8 @@ function App() {
   };
 
   const handleTouchEnd = (event) => {
+    if (window.matchMedia("(max-width: 760px)").matches || (activePage === 2 && window.matchMedia("(max-width: 980px)").matches)) return;
+
     const touchEndY = event.changedTouches[0]?.clientY;
 
     if (touchStartY.current === null || touchEndY === undefined) return;
@@ -122,7 +124,26 @@ function App() {
           <AboutSection />
         </div>
 
-        <div className={`page-slide works-slide${activePage === 2 ? " is-active" : ""}`} aria-hidden={activePage !== 2}>
+        <div
+          className={`page-slide works-slide${activePage === 2 ? " is-active" : ""}`}
+          aria-hidden={activePage !== 2}
+          onWheel={(event) => {
+            if (!window.matchMedia("(max-width: 980px)").matches) return;
+
+            const { clientHeight, scrollHeight, scrollTop } = event.currentTarget;
+            const isAtTop = scrollTop <= 1;
+            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+            const isMovingWithinPage = (event.deltaY < 0 && !isAtTop) || (event.deltaY > 0 && !isAtBottom);
+
+            if (isMovingWithinPage) event.stopPropagation();
+          }}
+          onTouchStart={(event) => {
+            if (window.matchMedia("(max-width: 980px)").matches) event.stopPropagation();
+          }}
+          onTouchEnd={(event) => {
+            if (window.matchMedia("(max-width: 980px)").matches) event.stopPropagation();
+          }}
+        >
           <WorksSection />
         </div>
 

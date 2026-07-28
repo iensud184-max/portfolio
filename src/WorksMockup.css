@@ -7,7 +7,7 @@
 .desktop-mockup {
   position: absolute;
   top: 4%;
-  left: 0;
+  right: 0;
   width: min(100%, 860px);
   padding: 14px 14px 18px;
   border: 2px solid var(--color-monitor-rim);
@@ -82,4 +82,12 @@
 
 .mockup-screen.is-contain img {
   object-fit: contain;
+}
+
+.desktop-controls {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 4px 0;
 }

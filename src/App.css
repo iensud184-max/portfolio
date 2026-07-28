@@ -228,6 +228,12 @@ a:focus-visible {
 }
 
 @media (max-width: 760px) {
+  .page-slide.is-active {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .site-header {
     position: absolute;
     align-items: center;
@@ -240,7 +246,9 @@ a:focus-visible {
   }
 
   .screen-note {
+    max-width: 210px;
     font-size: 11px;
+    white-space: normal;
   }
 
   .hero-page {
@@ -248,16 +256,28 @@ a:focus-visible {
   }
 
   .page-indicator {
-    right: 16px;
+    right: 12px;
   }
 
   .hero-title {
-    font-size: clamp(42px, 12.8vw, 60px);
+    font-size: clamp(38px, 12vw, 56px);
   }
 
   .hero-intro {
     max-width: 94%;
   }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .works-slide.is-active {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (min-width: 761px) and (max-height: 900px) {
+  .site-header { padding-top: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

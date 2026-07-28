@@ -36,7 +36,7 @@ const worksProjects = [
     summary: "영화 예매부터 결제, 회원 관리와 관리자 기능까지 영화관 서비스의 주요 흐름을 구현한 팀 프로젝트입니다.",
     tags: ["Python", "Flask", "SQLAlchemy", "MySQL", "Jinja2", "Bootstrap", "Toss Payments"],
     sourceUrl: "https://github.com/iensud184-max/movie_260407",
-    liveLinks: [{ label: "FILMATIQUE", url: "https://hub.docker.com/r/kangminsik/filmatique" }],
+    liveLinks: [{ label: "FILMATIQUE", url: "https://filmatique.onrender.com" }],
     previewImage: projectPreview("movie.png"),
     previewAlt: "Filmatique cinema site preview",
   },

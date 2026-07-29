@@ -127,7 +127,7 @@
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.16;
-  white-space: pre-line;
+  white-space: nowrap;
 }
 
 @media (max-width: 760px) {
@@ -177,6 +177,14 @@
   .contact-links a:last-child {
     overflow-wrap: normal;
     word-break: keep-all;
+  }
+
+  .contact-thanks {
+    white-space: normal;
+  }
+
+  .contact-thanks span {
+    display: block;
   }
 }
 

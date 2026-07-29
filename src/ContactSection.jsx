@@ -9,11 +9,11 @@ const contactContent = {
   email: "iensud184@naver.com",
   githubLabel: "github.com/iensud184-max",
   githubUrl: "https://github.com/iensud184-max",
-  thanks: "Thank you for visiting\nmy portfolio",
+  thanks: ["Thank you for visiting", "my portfolio"],
 };
 
 function ContactSection() {
-  return <section className="contact-page" aria-labelledby="contact-title"><div className="contact-content"><h2 id="contact-title">{contactContent.title}</h2><div className="contact-glass"><p className="contact-message">{contactContent.message}</p><article className="contact-card"><div><p className="contact-name">{contactContent.name}</p><p className="contact-name-en">{contactContent.englishName}</p></div><div className="contact-links"><a href={`tel:${contactContent.phone.replaceAll("-", "")}`}><span>PHONE</span>{contactContent.phone}</a><a href={`mailto:${contactContent.email}`}><span>EMAIL</span>{contactContent.email}</a><a href={contactContent.githubUrl} target="_blank" rel="noreferrer"><span>GITHUB</span>{contactContent.githubLabel}</a></div></article></div><p className="contact-thanks">{contactContent.thanks}</p></div></section>;
+  return <section className="contact-page" aria-labelledby="contact-title"><div className="contact-content"><h2 id="contact-title">{contactContent.title}</h2><div className="contact-glass"><p className="contact-message">{contactContent.message}</p><article className="contact-card"><div><p className="contact-name">{contactContent.name}</p><p className="contact-name-en">{contactContent.englishName}</p></div><div className="contact-links"><a href={`tel:${contactContent.phone.replaceAll("-", "")}`}><span>PHONE</span>{contactContent.phone}</a><a href={`mailto:${contactContent.email}`}><span>EMAIL</span>{contactContent.email}</a><a href={contactContent.githubUrl} target="_blank" rel="noreferrer"><span>GITHUB</span>{contactContent.githubLabel}</a></div></article></div><p className="contact-thanks"><span>{contactContent.thanks[0]}</span>{" "}<span>{contactContent.thanks[1]}</span></p></div></section>;
 }
 
 export default ContactSection;

@@ -14,6 +14,7 @@ function App() {
   const [activePage, setActivePage] = useState(0);
   const isTransitioning = useRef(false);
   const touchStartY = useRef(null);
+  const touchStartBoundary = useRef({ isAtTop: false, isAtBottom: false });
 
   const movePage = useCallback((direction) => {
     if (isTransitioning.current) return;
@@ -66,11 +67,17 @@ function App() {
 
   const handleTouchStart = (event) => {
     touchStartY.current = event.touches[0]?.clientY ?? null;
+
+    const activeSlide = event.target.closest?.(".page-slide.is-active") ?? document.querySelector(".page-slide.is-active");
+    if (!activeSlide) return;
+
+    touchStartBoundary.current = {
+      isAtTop: activeSlide.scrollTop <= 1,
+      isAtBottom: activeSlide.scrollTop + activeSlide.clientHeight >= activeSlide.scrollHeight - 1,
+    };
   };
 
   const handleTouchEnd = (event) => {
-    if (window.matchMedia("(max-width: 760px)").matches || (activePage === 2 && window.matchMedia("(max-width: 980px)").matches)) return;
-
     const touchEndY = event.changedTouches[0]?.clientY;
 
     if (touchStartY.current === null || touchEndY === undefined) return;
@@ -78,7 +85,21 @@ function App() {
     const distance = touchStartY.current - touchEndY;
     touchStartY.current = null;
 
-    if (Math.abs(distance) >= 56) movePage(distance > 0 ? 1 : -1);
+    if (Math.abs(distance) < 56) return;
+
+    const usesInternalScroll = window.matchMedia("(max-width: 760px)").matches
+      || (activePage === 2 && window.matchMedia("(max-width: 980px)").matches);
+
+    if (usesInternalScroll) {
+      const isMovingDown = distance > 0;
+      const canLeaveCurrentPage = isMovingDown
+        ? touchStartBoundary.current.isAtBottom
+        : touchStartBoundary.current.isAtTop;
+
+      if (!canLeaveCurrentPage) return;
+    }
+
+    movePage(distance > 0 ? 1 : -1);
   };
 
   return (
@@ -136,12 +157,6 @@ function App() {
             const isMovingWithinPage = (event.deltaY < 0 && !isAtTop) || (event.deltaY > 0 && !isAtBottom);
 
             if (isMovingWithinPage) event.stopPropagation();
-          }}
-          onTouchStart={(event) => {
-            if (window.matchMedia("(max-width: 980px)").matches) event.stopPropagation();
-          }}
-          onTouchEnd={(event) => {
-            if (window.matchMedia("(max-width: 980px)").matches) event.stopPropagation();
           }}
         >
           <WorksSection />

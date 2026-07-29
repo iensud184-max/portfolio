@@ -99,6 +99,7 @@
   font-size: clamp(16px, 1.35vw, 21px);
   font-weight: 850;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .competency-grid {
@@ -135,7 +136,7 @@
 .career-goal {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: auto minmax(280px, 0.8fr) minmax(0, 1.5fr);
+  grid-template-columns: auto 380px minmax(0, 1fr);
   align-items: center;
   gap: var(--space-6);
   padding: var(--space-4) var(--space-6);
@@ -170,7 +171,7 @@
     gap: 8px;
     min-height: 100dvh;
     align-content: center;
-    padding: 88px 52px 48px 20px;
+    padding: 88px 36px 48px;
   }
 
   .about-role {
@@ -257,4 +258,10 @@
   .about-page { padding-top: 86px; padding-bottom: 32px; }
   .about-hero { transform: translateY(-76px); }
   .competency-card { min-height: 108px; padding-top: 18px; padding-bottom: 18px; }
+}
+
+@media (min-width: 981px) {
+  .about-page {
+    padding-left: calc(var(--space-8) + var(--page-indicator-clearance));
+  }
 }

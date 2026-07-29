@@ -53,12 +53,22 @@ function WorksSection() {
 
       <div className="works-panel">
         <article className="project-detail" key={activeProject.id}>
-          <p className="project-number">0{activeProject.id}</p>
           <h3>{activeProject.title}</h3>
           <p className="project-period">
             {activeProject.period} ({activeProject.projectType})
           </p>
-          <p className="project-summary">{activeProject.summary}</p>
+          <div className="project-copy">
+            <div>
+              <p className="project-copy-label">프로젝트 소개</p>
+              <p className="project-summary">{activeProject.summary}</p>
+            </div>
+            {activeProject.implementation && (
+              <div>
+                <p className="project-copy-label">구현 방식</p>
+                <p className="project-summary">{activeProject.implementation}</p>
+              </div>
+            )}
+          </div>
 
           <ul className="project-tags" aria-label={`${activeProject.title} stack`}>
             {activeProject.tags.map((tag) => (
@@ -72,6 +82,11 @@ function WorksSection() {
                 {liveLink.label}
               </a>
             ))}
+            {activeProject.pdfUrl && (
+              <a href={activeProject.pdfUrl} target="_blank" rel="noreferrer">
+                PDF
+              </a>
+            )}
             {activeProject.sourceUrl && (
               <a href={activeProject.sourceUrl} target="_blank" rel="noreferrer">
                 GitHub
